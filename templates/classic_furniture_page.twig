@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ModernFurniture{% endblock %}
+
+{% block body %}
+    <div class="prices">
+        <h1>Prices</h1>
+        <ul>
+            <li aria-label="Chair Price">
+                {{ chair_price }}
+            </li>
+        </ul>
+    </div>
+    <footer>
+        <a href="/modern">Checkout our modern furniture!</a>
+    </footer>
+{% endblock %}
