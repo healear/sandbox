@@ -13,9 +13,9 @@ abstract class AbstractChair
     ) {
     }
 
-    abstract protected function calcPrice(): float;
+    abstract public function calcPrice(): float;
     
-    public function getSize(): Size
+    public function size(): Size
     {
         return $this->size;
     }

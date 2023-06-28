@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace App\Domain\Entity\Chair;
 
+use App\Domain\Entity\CoefficientEnum;
+
 class ClassicChair extends AbstractChair
 {
-    private const COEFFICIENT = 2;
 
     public function calcPrice(): float
     {
-        $size = $this->getSize();
+        $size = $this->size();
 
-        return self::COEFFICIENT * ($size->width() + $size->length() + $size->height()/4);
+        return CoefficientEnum::CLASSIC_COEFF * ($size->width() + $size->length() + $size->height()/4);
     }
 
 }
