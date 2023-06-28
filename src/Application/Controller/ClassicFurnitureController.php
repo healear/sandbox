@@ -19,7 +19,7 @@ class ClassicFurnitureController extends AbstractController
     #[Route('/classic', name: 'ClassicFurniture')]
     public function index(): Response
     {
-        $chairPrice = $this->furnitureFactory->getChair(new Size(1.0, 1.0, 1.0))->calcPrice();
+        $chairPrice = $this->furnitureFactory->getChair(new Size(1.0, 1.0, 1.0))->calcPrice(); //TODO: сделаь инпуты
 
         return $this->render('/furniture_page.twig', ['chair_price'=>$chairPrice]);
     }

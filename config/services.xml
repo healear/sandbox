@@ -12,5 +12,10 @@
         <service id="App\Application\Controller\ModernFurnitureController">
             <argument key="$furnitureFactory" type="service" id="App\Infrastructure\Proves\ModernFurnitureFactory"/>
         </service>
+        <service id="App\Infrastructure\Proves\HouseBuilder"/>
+        <service id="App\Application\Proves\HouseBuilderInterface" alias="App\Infrastructure\Proves\HouseBuilder"/>
+        <service id="App\Infrastructure\Proves\HouseBuilderDirector"/>
+        <service id="App\Application\Proves\HouseBuilderDirectorInterface" alias="App\Infrastructure\Proves\HouseBuilderDirector"/>
+        <service id="App\Application\Controller\HousesController"/>
     </services>
 </container>

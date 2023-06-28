@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Houses{% endblock %}
+
+{% block body %}
+    <div class="houses">
+        <h1>FullHouses</h1>
+        <ul>
+            <li>
+                ModernHouse: {{ modern_house_price }}
+                ClassicHouse: {{ classic_house_price }}
+            </li>
+        </ul>
+        <h1>LightHouses</h1>
+        <ul>
+            <li>
+                ModernLightHouse: {{ modern_light_house_price }}
+                ClassicLightHouse: {{ classic_light_house_price }}
+            </li>
+        </ul>
+    </div>
+    <footer>
+        <a href="/classic">Checkout our classic furniture!</a>
+    </footer>
+{% endblock %}
