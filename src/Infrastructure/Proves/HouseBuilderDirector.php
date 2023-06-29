@@ -21,7 +21,7 @@ class HouseBuilderDirector implements HouseBuilderDirectorInterface
         $this->houseBuilder->withWalls($walls);
         $this->houseBuilder->withLamp($lamp);
 
-        $house = clone $this->houseBuilder->getHouse();
+        $house = $this->houseBuilder->getHouse()->cloneWithFurniture();
         $this->houseBuilder->reset();
 
         return $house;
@@ -36,7 +36,7 @@ class HouseBuilderDirector implements HouseBuilderDirectorInterface
         $this->houseBuilder->withLamp($lamp);
         $this->houseBuilder->withChair($chair);
 
-        $house = clone $this->houseBuilder->getHouse();
+        $house = $this->houseBuilder->getHouse()->cloneWithFurniture();
         $this->houseBuilder->reset();
 
         return $house;

@@ -8,7 +8,7 @@ use App\Domain\Entity\Chair\AbstractChair;
 use App\Domain\Entity\House\Structure\Walls\Walls;
 use App\Domain\Entity\Lamp\AbstractLamp;
 
-class House
+class House implements ClonableHouseInterface
 {
     public AbstractChair|null $chair;
     public AbstractLamp|null $lamp;
@@ -43,5 +43,15 @@ class House
     {
         $this->chair = null;
         $this->lamp = null;
+    }
+
+    public function cloneWithFurniture(): House
+    {
+        return new House($this->chair, $this->lamp, $this->walls);
+    }
+
+    public function cloneOnlyStructure(): House
+    {
+        return new House(null, null, $this->walls);
     }
 }
