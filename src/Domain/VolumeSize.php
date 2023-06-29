@@ -27,4 +27,9 @@ class VolumeSize
     {
         return $this->height;
     }
+
+    public function volume(): float
+    {
+        return $this->length * $this->width * $this->height;
+    }
 }

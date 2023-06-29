@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Application\Controller;
 
 use App\Application\Proves\HouseBuilderDirectorInterface;
+use App\Domain\Entity\House\Structure\Walls\Material;
+use App\Domain\Entity\House\Structure\Walls\Walls;
 use App\Domain\VolumeSize;
 use App\Infrastructure\Proves\ClassicFurnitureFactory;
 use App\Infrastructure\Proves\ModernFurnitureFactory;
@@ -27,6 +29,15 @@ class HousesController extends AbstractController
     public function index(): Response
     {
         $stockSize = new VolumeSize(1.0, 1.0, 1.0);
+        $stockWalls = new Walls(
+            Material::brick(),
+            [
+                $stockSize,
+                $stockSize,
+                $stockSize,
+                $stockSize,
+            ],
+        );
 
         $classicChair = $this->classicFurnitureFactory->getChair($stockSize);
         $classicLamp = $this->classicFurnitureFactory->getLamp($stockSize, self::STOCK_ILLUMINATION);
@@ -35,18 +46,26 @@ class HousesController extends AbstractController
         $modernLamp = $this->modernFurnitureFactory->getLamp($stockSize, self::STOCK_ILLUMINATION);
 
         $modernFullHousePrice = $this->builderDirector->buildFullHouse(
+            $stockWalls,
             $modernLamp,
             $modernChair,
-        )->calcPriceOfFurniture();
+        )->calcOverallPrice();
 
-        $modernLightHousePrice = $this->builderDirector->buildLightHouse($modernLamp)->calcPriceOfFurniture();
+        $modernLightHousePrice = $this->builderDirector->buildLightHouse(
+            $stockWalls,
+            $modernLamp,
+        )->calcOverallPrice();
 
         $classicFullHousePrice = $this->builderDirector->buildFullHouse(
+            $stockWalls,
             $classicLamp,
-            $classicChair
-        )->calcPriceOfFurniture();
+            $classicChair,
+        )->calcOverallPrice();
 
-        $classicLightHousePrice = $this->builderDirector->buildLightHouse($classicLamp)->calcPriceOfFurniture();
+        $classicLightHousePrice = $this->builderDirector->buildLightHouse(
+            $stockWalls,
+            $classicLamp,
+        )->calcOverallPrice();
 
         return $this->render(
             'houses_page.twig',
