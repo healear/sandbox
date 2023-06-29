@@ -21,6 +21,6 @@ class ModernFurnitureController extends AbstractController
     {
         $chairPrice = $this->furnitureFactory->getChair(new VolumeSize(1.0, 1.0, 1.0))->calcPrice();
 
-        return $this->render('/furniture_page.twig', ['chair_price'=>$chairPrice]);
+        return $this->render('/modern_furniture_page.twig', ['chair_price'=>$chairPrice]);
     }
 }
