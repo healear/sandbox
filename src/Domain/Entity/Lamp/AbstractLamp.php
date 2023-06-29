@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 namespace App\Domain\Entity\Lamp;
-use App\Domain\Size;
+use App\Domain\VolumeSize;
 
 abstract class AbstractLamp
 {
     public function __construct(
-        private Size $size,
+        private VolumeSize $size,
         private float $illumination,
     ) {
     }
 
-    public function size(): Size
+    public function size(): VolumeSize
     {
         return $this->size;
     }

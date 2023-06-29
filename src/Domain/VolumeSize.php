@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
-class Size
+class VolumeSize
 {
     public function __construct(
       private float $length,

@@ -6,10 +6,10 @@ namespace App\Application\Proves;
 
 use App\Domain\Entity\Chair\AbstractChair;
 use App\Domain\Entity\Lamp\AbstractLamp;
-use App\Domain\Size;
+use App\Domain\VolumeSize;
 
 interface FurnitureFactoryInterface
 {
-    public function getChair(Size $size): AbstractChair;
-    public function getLamp(Size $size, float $illumination): AbstractLamp;
+    public function getChair(VolumeSize $size): AbstractChair;
+    public function getLamp(VolumeSize $size, float $illumination): AbstractLamp;
 }

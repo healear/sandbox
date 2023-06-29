@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Application\Controller;
 
 use App\Application\Proves\HouseBuilderDirectorInterface;
-use App\Domain\Size;
+use App\Domain\VolumeSize;
 use App\Infrastructure\Proves\ClassicFurnitureFactory;
 use App\Infrastructure\Proves\ModernFurnitureFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +26,7 @@ class HousesController extends AbstractController
     #[Route('/houses', name: 'Houses')]
     public function index(): Response
     {
-        $stockSize = new Size(1.0, 1.0, 1.0);
+        $stockSize = new VolumeSize(1.0, 1.0, 1.0);
 
         $classicChair = $this->classicFurnitureFactory->getChair($stockSize);
         $classicLamp = $this->classicFurnitureFactory->getLamp($stockSize, self::STOCK_ILLUMINATION);
