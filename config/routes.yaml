@@ -1,5 +1,9 @@
-controllers:
+controllers_prod:
     resource: ../src/Application/Controller/
+    type: annotation
+
+test_controllers:
+    resource: ../src/SeparateCategory/
     type: annotation
 
 kernel:
