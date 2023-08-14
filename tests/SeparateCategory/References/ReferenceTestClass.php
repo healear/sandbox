@@ -15,4 +15,9 @@ class ReferenceTestClass
     {
         ++$var;
     }
+
+    public function &getValueByReference(): int
+    {
+        return $this->count;
+    }
 }
