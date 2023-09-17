@@ -10,6 +10,7 @@ return function (array $context) {
 
     // Обработка запроса через Symfony
     $request = Request::createFromGlobals();
+
     $response = $kernel->handle($request);
     $response->send();
 

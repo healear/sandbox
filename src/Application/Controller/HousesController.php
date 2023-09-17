@@ -10,6 +10,7 @@ use App\Domain\Entity\House\Structure\Walls\Walls;
 use App\Domain\VolumeSize;
 use App\Infrastructure\Proves\ClassicFurnitureFactory;
 use App\Infrastructure\Proves\ModernFurnitureFactory;
+use Doctrine\DBAL\Connection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,6 +23,7 @@ class HousesController extends AbstractController
         private ModernFurnitureFactory $modernFurnitureFactory,
         private ClassicFurnitureFactory $classicFurnitureFactory,
         private HouseBuilderDirectorInterface $builderDirector,
+        private Connection $connection
     ) {
     }
 
@@ -29,6 +31,7 @@ class HousesController extends AbstractController
     public function index(): Response
     {
         $stockSize = new VolumeSize(1.0, 1.0, 1.0);
+
         $stockWalls = new Walls(
             Material::brick(),
             [

@@ -18,5 +18,7 @@
         <service id="App\Infrastructure\Proves\HouseBuilderDirector"/>
         <service id="App\Application\Proves\HouseBuilderDirectorInterface" alias="App\Infrastructure\Proves\HouseBuilderDirector"/>
         <service id="App\Application\Controller\HousesController"/>
+
+        <service id="App\DataFixtures\UserFixture"/>
     </services>
 </container>
